@@ -20,9 +20,6 @@ This project originally started as a way to teach myself the backend configurati
 | Protocols      | HTTP, HTTPS, SSH, SMB, FTP, SMTP                                                                                                                                                                                                                                                                                                      |
 
 ![Configuration diagram](assets/20240102_202551_diagram.png)
-
-<center><i>Config Diagram</i></center>
-
 Here is a gist of what happens when a webpage is accessed on the system. The HTTPS request coming into the system goes to the traefik reverse proxy container. This container is stored in an Ubuntu VM (Services) on the PC (Server 1) running Proxmox. Traefik reads the request, directs it to the respective container, and returns the response to the user.
 
 These different containers in the Services VM provide access to different resources within the network.
