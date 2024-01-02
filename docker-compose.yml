@@ -25,7 +25,7 @@ services:
       - AVATAR_URL=https://github.com/gabriel-lau.png?size=200
       - AVATAR_2X_URL=https://github.com/gabriel-lau.png?size=400
       - AVATAR_ALT=Profile Pic
-      - NAME=GabrielLau
+      - NAME=Gabriel Lau
       - BIO=Computing Science Undergraduate at Singapore Institute of Technology (SIT)
       # use ENV variable names for order, listed buttons will be boosted to the top
       - BUTTON_ORDER=GITHUB,LINKED_IN,DOCUMENTATION
