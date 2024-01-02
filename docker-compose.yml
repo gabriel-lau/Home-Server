@@ -31,10 +31,10 @@ services:
       - BUTTON_ORDER=GITHUB,LINKED_IN,DOCUMENTATION
       # you can render an unlimited amount of custom buttons by adding 
       # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
-      - CUSTOM_BUTTON_TEXT=Home Server Docs
+      - CUSTOM_BUTTON_TEXT=Home Server Config Docs
       - CUSTOM_BUTTON_URL=https://github.com/gabriel-lau/Home-Server
-      - CUSTOM_BUTTON_COLOR=#000000,#000000
-      - CUSTOM_BUTTON_TEXT_COLOR=#ffffff,#ffffff
+      - CUSTOM_BUTTON_COLOR=#ffffff
+      - CUSTOM_BUTTON_TEXT_COLOR=#000000
       - CUSTOM_BUTTON_ALT_TEXT=More about my homeserver config
       - CUSTOM_BUTTON_NAME=DOCUMENTATION
       - CUSTOM_BUTTON_ICON=fas file-alt
