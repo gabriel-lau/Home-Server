@@ -1,1 +1,60 @@
+version: "3.0"
+services:
+  littlelink-server:
+    image: ghcr.io/techno-tim/littlelink-server:latest
+    # dockerhub is also supported timothystewart6/littlelink-server
+    # image: timothystewart6/littlelink-server:latest
+    container_name: littlelink-server
+    environment:
+      - META_TITLE=Gabriel Lau
+      - META_DESCRIPTION=Computing Science Undergraduate at Singapore Institute of Technology (SIT)
+      - META_AUTHOR=Gabriel Lau
+      - META_KEYWORDS=HomeLab, Software Development
+      - LANG=en
+      - META_INDEX_STATUS=all
+      - OG_SITE_NAME=Gabriel Lau
+      - OG_TITLE=Gabriel Lau
+      - OG_DESCRIPTION=Computing Science Undergraduate at Singapore Institute of Technology (SIT)
+      - OG_URL=https://home.glhweb.com
+      - OG_IMAGE=https://github.com/gabriel-lau.png
+      - OG_IMAGE_WIDTH=400
+      - OG_IMAGE_HEIGHT=400
+      - GA_TRACKING_ID=G-XXXXXXXXXX
+      - THEME=Dark
+      - FAVICON_URL=https://github.com/gabriel-lau.png?size=200
+      - AVATAR_URL=https://github.com/gabriel-lau.png?size=200
+      - AVATAR_2X_URL=https://github.com/gabriel-lau.png?size=400
+      - AVATAR_ALT=Profile Pic
+      - NAME=GabrielLau
+      - BIO=Computing Science Undergraduate at Singapore Institute of Technology (SIT)
+      # use ENV variable names for order, listed buttons will be boosted to the top
+      - BUTTON_ORDER=GITHUB,LINKED_IN,DOCUMENTATION
+      # you can render an unlimited amount of custom buttons by adding 
+      # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
+      - CUSTOM_BUTTON_TEXT=Home Server Docs
+      - CUSTOM_BUTTON_URL=https://github.com/gabriel-lau/Home-Server
+      - CUSTOM_BUTTON_COLOR=#000000,#000000
+      - CUSTOM_BUTTON_TEXT_COLOR=#ffffff,#ffffff
+      - CUSTOM_BUTTON_ALT_TEXT=More about my homeserver config
+      - CUSTOM_BUTTON_NAME=DOCUMENTATION
+      - CUSTOM_BUTTON_ICON=fas file-alt
+      - GITHUB=https://github.com/gabriel-lau
+      - LINKED_IN=https://www.linkedin.com/in/gabriellh-/
+      - FOOTER=By Gabriel 2024
+    ports:
+      - 8082:3000
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.home.rule=Host(`home.glhweb.com`)"
+      - "traefik.http.routers.home.entrypoints=websecure"
+      - "traefik.http.routers.home.tls.certresolver=myresolver"
+    networks:
+      - traefik
 
+networks:
+    traefik:
+      external: true
